@@ -1,0 +1,12 @@
+#media-highlight {
+  background: linear-gradient(
+      0deg,
+      rgba(31, 30, 32, 1) 0%,
+      rgba(45, 43, 43, 0.4990589985994398) 50%,
+      rgba(31, 30, 32, 1) 100%
+    ),
+    url("/public/encanto.jpeg");
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
