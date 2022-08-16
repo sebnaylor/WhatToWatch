@@ -10,3 +10,20 @@
   background-size: cover;
   background-position: center;
 }
+
+.blank {
+  height: 135px;
+  width: 89px;
+  background-color: #c4c4c4;
+}
+
+.plus {
+  background-image: url("/public/+.png");
+  background-repeat: no-repeat;
+  width: 26px;
+  height: 26px;
+  position: relative;
+  left: 30px;
+  top: 50px;
+  margin: 0;
+}
