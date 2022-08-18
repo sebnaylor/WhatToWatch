@@ -35,25 +35,29 @@ export default function Home() {
       <div className="watchlist">
         <div className="watchlist-header">
           <div className="flex justify-between">
-            <h3 class="text-2xl mx-2">Watchlist</h3>
+            <h3 className="text-2xl mx-2">Watchlist</h3>
             <div className="share flex items-center">
               <h3>Shared</h3>
-              <img src="./filter.png" alt="" class="shared-icon mx-1 w-10" />
+              <img
+                src="./filter.png"
+                alt=""
+                className="shared-icon mx-1 w-10"
+              />
             </div>
           </div>
         </div>
         <div className="movies">
-          <h2 class="text-2xl mx-2 mb-4">Movies</h2>
+          <h2 className="text-2xl mx-2 mb-4">Movies</h2>
           <div className="movie-cards mx-2">
-            <div className="movie blank">
+            <div className="blank">
               <div className="plus"></div>
             </div>
           </div>
         </div>
         <div className="series pb-5">
           <h2 className="text-2xl mx-2 my-2">Series</h2>
-          <div className="movie-cards mx-2">
-            <div className="series blank">
+          <div className="series-cards mx-2">
+            <div className="blank">
               <div className="plus"></div>
             </div>
           </div>
