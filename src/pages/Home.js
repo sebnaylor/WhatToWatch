@@ -1,21 +1,29 @@
 import "./Home.css";
 import React from "react";
+import { useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 
 export default function Home() {
+  const [url, setUrl] = useState(
+    "https://imdb-api.com/en/API/Title/k_h9fr622q/tt2953050"
+  );
+  const { data: detail, isPending, error } = useFetch(url, { type: "GET" });
+  console.log(detail);
   return (
     <>
       <div id="media-highlight" className="-mt-12 h-180 text-center">
-        <h2 className="text-center pt-80 text-2xl">Encanto</h2>
+        <h2 className="text-center pt-80 text-2xl">{detail && detail.title}</h2>
         <div className="highlight-genres flex justify-center space-x-4 mt-4">
-          <p>Animation</p>
-          <p>Comedy</p>
-          <p>Family</p>
+          {detail &&
+            detail.genreList.map((genre) => {
+              return <p>{genre.value}</p>;
+            })}
         </div>
-        <p className="my-1">102 mins</p>
+        <p className="my-1">{detail && detail.runtimeStr}</p>
         <div className="highlight-info flex items-center justify-center">
           <div className="imdb flex mx-3">
             <img className="object-contain mx-1" src="./imdb.png" alt="imdb" />
-            <p>7.3</p>
+            <p>{detail && detail.imDbRating}</p>
           </div>
           <div className="metacritic flex mx-3 my-8">
             <img
@@ -23,7 +31,7 @@ export default function Home() {
               src="./metacritic.png"
               alt="metacritic"
             />
-            <p>7.1</p>
+            <p>{detail && detail.metacriticRating}</p>
           </div>
           <img
             className="object-contain mx-3 w-6"
