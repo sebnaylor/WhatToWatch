@@ -8,7 +8,7 @@ import "./Media.css";
 export default function Media() {
   const { id } = useParams();
   const [detailUrl, setdetailUrl] = useState(
-    `https://imdb-api.com/en/API/Title/k_h9fr622q/${id}`
+    `http://www.omdbapi.com/?i=${id}&plot=full&apikey=5265914`
   );
   const {
     data: detail,
@@ -25,6 +25,8 @@ export default function Media() {
     sceneIsPending,
     sceneError,
   } = useFetch(sceneUrl, { type: "GET" });
+
+  console.log(detail);
 
   const showDetails = (target) => {
     document.getElementById(`${target.toLowerCase()}-info`).classList = "mx-2";
@@ -47,7 +49,7 @@ export default function Media() {
     background:
       'linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgb(0, 0, 0), url("/public/encanto-scene.png")',
     width: "100%",
-    height: "200px",
+    // height: "200px",
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
@@ -55,24 +57,29 @@ export default function Media() {
   return (
     <>
       <div className="flex items-center justify-between mt-6">
-        <h2 className="text-2xl mx-2">{detail && detail.title}</h2>
+        <h2 className="text-2xl mx-2">{detail && detail.Title}</h2>
         <ListButton />
       </div>
       <div>
         <div className="flex items-center justify-between mt-3">
           <div className="media-info flex space-x-1 mx-1">
-            <h4 className="text-xl">{detail && detail.year}</h4>
-            <h4 className="text-xl">{detail && detail.contentRating}</h4>
-            <h4 className="text-xl">{detail && detail.runtimeStr}</h4>
+            <h4 className="text-xl">{detail && detail.Year}</h4>
+            <h4 className="text-xl">{detail && detail.Rated}</h4>
+            <h4 className="text-xl">{detail && detail.Runtime}</h4>
           </div>
           <WatchButton />
         </div>
       </div>
-      <div className="media-scene mt-2" style={backgroundStyle}></div>
+      <div
+        className="media-scene mt-2"
+        style={{
+          backgroundImage: "url(" + `${scene && scene.items[0].image}` + ")",
+        }}
+      ></div>
       <div className="highlight-info flex items-center justify-center">
         <div className="imdb flex mx-3">
           <img className="object-contain mx-1" src="../imdb.png" alt="imdb" />
-          <p>{detail && detail.imDbRating}</p>
+          <p>{detail && detail.imdbRating}</p>
         </div>
         <div className="metacritic flex mx-3 my-4">
           <img
@@ -80,11 +87,11 @@ export default function Media() {
             src="../metacritic.png"
             alt="metacritic"
           />
-          <p>{detail && detail.metacriticRating}</p>
+          <p>{detail && detail.Ratings[1].Value.substring(0, 2)}</p>
         </div>
       </div>
       <div className="mx-2">
-        <p>{detail && detail.plot}</p>
+        <p>{detail && detail.Plot}</p>
       </div>
       <div className="mx-2 my-2">
         <span
@@ -117,23 +124,15 @@ export default function Media() {
         </span>
       </div>
       <div id="directors-info" className="mx-2">
-        {detail && detail.directors}
+        {detail && detail.Director}
       </div>
       <div id="actors-info" className="hidden mx-2">
-        TODO
+        {detail && detail.Actors}
       </div>
       <div id="writers-info" className="writers hidden mx-2">
-        {detail && detail.writers}
+        {detail && detail.Writer}
       </div>
       <div id="faqs-info" className="faqs hidden mx-2"></div>
-      <div className="movies">
-        <h2 className="text-2xl mx-2 my-4">Movies like this</h2>
-        <div className="mx-2">
-          <div className="blank">
-            <div className="plus"></div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

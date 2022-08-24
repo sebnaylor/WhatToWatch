@@ -4,7 +4,7 @@ import "./Nav.css";
 
 export default function Nav() {
   return (
-    <div className="nav flex justify-between align items-center mx-1">
+    <div className="nav flex justify-between items-center mx-1">
       <img className="object-contain w-12" src="../logo.png" alt="logo" />
       <Link to="./">
         <h1 className="text-4xl">What To Watch</h1>

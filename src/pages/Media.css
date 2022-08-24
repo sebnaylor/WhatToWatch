@@ -1,13 +1,12 @@
 .media-scene {
   background: linear-gradient(
-      to right,
-      rgb(0, 0, 0),
-      rgba(0, 0, 0, 0.25),
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.25),
-      rgb(0, 0, 0)
-    ),
-    url("/public/encanto-scene.png");
+    to right,
+    rgb(0, 0, 0),
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.25),
+    rgb(0, 0, 0)
+  );
   width: 100%;
   height: 200px;
   background-size: cover;
