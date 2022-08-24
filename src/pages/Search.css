@@ -1,0 +1,15 @@
+input::placeholder {
+  display: flex;
+  text-align: center;
+  text-align-last: center;
+  color: black;
+  opacity: 0.5;
+}
+
+input {
+  text-align: center;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
