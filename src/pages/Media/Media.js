@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
-import ListButton from "../components/ListButton";
-import WatchButton from "../components/WatchButton";
+import ListButton from "../../components/ListButton";
+import WatchButton from "../../components/WatchButton";
 import "./Media.css";
 
 export default function Media() {

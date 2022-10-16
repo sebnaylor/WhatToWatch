@@ -1,7 +1,7 @@
 import "./Home.css";
 import React from "react";
 import { useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 
 export default function Home() {
   const [url, setUrl] = useState(

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Search.css";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 
 export default function Search() {
   const searchUrl = `http://www.omdbapi.com/?s=${"a"}&type=movie&apikey=5265914`;
